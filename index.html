@@ -4,17 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-    <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js"
-    type="text/javascript"></script>
     <title>RSS News Feed</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script src="http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.js" type="text/javascript"></script>
+    
 </head>
 <body>
     <div id="body">
         <div id="feedControl">Loading...</div>
     </div>
-  
-    <script src="index.js"></script>
+
+    <script type="text/javascript">
+        function load() {
+            var feed = 'http://feeds.bbci.co.uk/news/world/rss.xml';
+            new GFdynamicFeedControl(feed, "feedControl");
+        }
+        google.charts.load('feeds', '1');
+        google.setOnLoadCallback(load);
+    </script>
+
 </body>
 </html>
